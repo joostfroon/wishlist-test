@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Product from './Product';
+import { ToggleWishlistContext } from '../../layout/layout';
 
 const WishlistModal = ({ className, products, toggleInWishlist }) => {
-  const [open, setOpen] = useState();
+  const { openWishlist, setOpenWishlist } = useContext(ToggleWishlistContext);
 
   return (
     <div className={className}>
-      <Label onClick={() => setOpen(!open)}>{products.length} producten bewaard</Label>
-      {open && (
+      <Label onClick={() => setOpenWishlist(!openWishlist)}>{products.length} producten bewaard</Label>
+      {openWishlist && (
         <Wishlist>
           {products.map(product => (
             <Product key={product.id} product={product} toggleInWishlist={toggleInWishlist} />
