@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../layout/layout';
 import Products from '../components/Products';
 import Container from '../components/Container';
-import Header from '../layout/Header';
 
 const WishlistModal = React.lazy(() => import ('../components/wishlistModal/WishlistModal'));
 
