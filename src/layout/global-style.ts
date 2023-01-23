@@ -7,7 +7,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.backgroundColor};
     font-family: ${({ theme }) => theme.fontFamily};
-    font-weight: ${({ theme }) => theme.fontWeight};
     color: ${({ theme }) => theme.fontColor};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

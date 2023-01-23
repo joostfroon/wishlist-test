@@ -1,19 +1,20 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Container from '../components/Container';
 import Logo from '../svgs/Logo';
-import { ToggleWishlistContext } from '../layout/layout';
 import Heart from '../svgs/Heart';
+import { useWishlistContext } from '../contexts/wishlist';
 
 const Header = ({ className }) => {
-  const { openWishlist, setOpenWishlist } = useContext(ToggleWishlistContext);
+  const { showWishlistItems, setShowWishlistItems, wishlistIds } = useWishlistContext();
 
   return (
     <header className={className}>
       <Container>
         <Logo /> 
-        <WishlistButton type="button" onClick={() => setOpenWishlist(!openWishlist)}>
+        <WishlistButton onClick={() => setShowWishlistItems(!showWishlistItems)}>
           <Heart />
+          {wishlistIds.length > 0 && (<Label>{wishlistIds.length}</Label>)}
         </WishlistButton>      
       </Container>
     </header>
@@ -21,13 +22,31 @@ const Header = ({ className }) => {
 
 };
 
+const Label = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: ${({ theme }) => theme.primaryColor};
+  color: white;
+  width: 1rem;
+  height: 1rem;
+  font-size: .75rem;
+  line-height: 0;
+  border-radius: 5rem;
+  font-weight: 700;
+`;
+
 const WishlistButton = styled.button`
+  position: relative;
   background: none;
   border: none;
   cursor: pointer;
 
   ${Heart} {
-    width: 1rem;
+    width: 1.5rem;
   }
 `;
 

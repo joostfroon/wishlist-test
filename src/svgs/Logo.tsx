@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Logo = ({ className }) => (
+interface Props {
+  className?: string;
+}
+
+const Logo = ({ className }: Props) => (
   <svg className={className} viewBox="0 0 189 31">
     <path 
       fill="currentColor" 

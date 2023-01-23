@@ -2,14 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import Stars from './Stars';
 import WishlistButton from '../WishlistButton';
+import { ProductInterface } from '../../interfaces';
+import { useWishlistContext } from '../../contexts/wishlist';
 
-const Product = ({ 
-  product,
-  wishlist,
-  toggleInWishlist,
-  className,
-}) => {
+interface Props {
+  product: ProductInterface;
+  className?: string;
+}
+
+const Product = ({ product, className }: Props) => {
   const { id, image, title, reviewScore, description, price } = product;
+  const { wishlistIds, toggleWishlistId } = useWishlistContext();
 
   return (
         <article className={className}>
@@ -21,9 +24,10 @@ const Product = ({
             </div>
             <PriceAndWishlistWrapper>
               <Price>{price}</Price>
-              <WishlistButton 
-                active={wishlist.includes(id)} 
-                onClick={() => toggleInWishlist(id)} 
+              <WishlistButton
+                title={`Add ${title} to wishlist`}
+                active={wishlistIds.includes(id)} 
+                onClick={() => toggleWishlistId(id)} 
               />
             </PriceAndWishlistWrapper>
         </article>

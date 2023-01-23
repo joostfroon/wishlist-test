@@ -1,18 +1,28 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Product from './Product';
-import { ToggleWishlistContext } from '../../layout/layout';
+import { useWishlistContext } from '../../contexts/wishlist';
+import { ProductInterface } from '../../interfaces';
 
-const WishlistModal = ({ className, products, toggleInWishlist }) => {
-  const { openWishlist, setOpenWishlist } = useContext(ToggleWishlistContext);
+const LABEL_TITLE = 'Open wishlist';
+
+interface Props {
+  products: ProductInterface[];
+  className?: string;
+}
+
+const WishlistModal = ({ className, products }: Props) => {
+  const { showWishlistItems, setShowWishlistItems, toggleWishlistId } = useWishlistContext();
 
   return (
     <div className={className}>
-      <Label onClick={() => setOpenWishlist(!openWishlist)}>{products.length} producten bewaard</Label>
-      {openWishlist && (
+      <Label title={LABEL_TITLE} aria-label={LABEL_TITLE} onClick={() => setShowWishlistItems(!showWishlistItems)}>
+        Wishlist
+      </Label>
+      {showWishlistItems && (
         <Wishlist>
           {products.map(product => (
-            <Product key={product.id} product={product} toggleInWishlist={toggleInWishlist} />
+            <Product key={product.id} product={product} toggleWishlistId={toggleWishlistId} />
           ))}
         </Wishlist>
       )}

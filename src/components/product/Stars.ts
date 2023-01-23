@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const Stars = styled.div`
-  --percent: ${({ $score }) => css`calc(${$score} / 10 * 100%)`};
+  --percent: ${({ $score }: { $score: number }) => css`calc(${$score} / 10 * 100%)`};
 
   display: block;
   font-size: 1.25rem;
