@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 
-const LOCALSTORAGE_FOR_WISHLIST_NAME = 'wishlist';
+const WISHLIST_NAME_FOR_LOCALSTORAGE = 'wishlist';
 
 interface Context {
   showWishlistItems: boolean; 
@@ -25,14 +25,14 @@ interface Provider {
 
 export const WishlistContextProvider = ({ children }: Provider) => {
   const [showWishlistItems, setShowWishlistItems] = useState(false);
-  const wishlistFromLocalStorage = typeof window !== 'undefined' && localStorage.getItem(LOCALSTORAGE_FOR_WISHLIST_NAME);
+  const wishlistFromLocalStorage = typeof window !== 'undefined' && localStorage.getItem(WISHLIST_NAME_FOR_LOCALSTORAGE);
   const [wishlistIds, setWishlist] = useState<string[]>(wishlistFromLocalStorage ? JSON.parse(wishlistFromLocalStorage) : []);
   
   useEffect(() => {
-    localStorage.setItem(LOCALSTORAGE_FOR_WISHLIST_NAME, JSON.stringify(wishlistIds));
+    localStorage.setItem(WISHLIST_NAME_FOR_LOCALSTORAGE, JSON.stringify(wishlistIds));
   }, [wishlistIds]);
   
-  const toggleWishlistId = (id) => {
+  const toggleWishlistId = (id: string) => {
     if (wishlistIds.includes(id)) {
       return setWishlist(wishlistIds.filter(wish => wish !== id));
     }
