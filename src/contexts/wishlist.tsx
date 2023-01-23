@@ -4,9 +4,9 @@ const WISHLIST_NAME_FOR_LOCALSTORAGE = 'wishlist';
 
 interface Context {
   showWishlistItems: boolean; 
-  setShowWishlistItems: (prop: boolean) => void;
+  setShowWishlistItems: (arg: boolean) => void;
   wishlistIds: string[];
-  toggleWishlistId: (prop: string) => void;
+  toggleWishlistId: (arg: string) => void;
 }
 
 const wishlistContext = createContext<Context | null>(null);

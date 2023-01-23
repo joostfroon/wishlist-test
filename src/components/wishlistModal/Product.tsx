@@ -5,7 +5,7 @@ import Cross from '../../svgs/Cross';
 
 interface Props {
   product: ProductInterface;
-  toggleWishlistId: (prop: string) => void;
+  toggleWishlistId: (arg: string) => void;
   className?: string;
 }
 
