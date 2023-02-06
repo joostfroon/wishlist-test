@@ -4,8 +4,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'intergamma',
-    siteUrl: 'https://www.intergamma.tld',
+    title: 'Wishlist test',
+    siteUrl: 'https://www.Wishlist-test.tld',
   },
   plugins: [
     'gatsby-plugin-styled-components', 

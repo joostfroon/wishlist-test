@@ -20,7 +20,7 @@ export const useWishlistContext = () => {
 };
 
 interface Provider {
-  children: React.ReactNode;
+  children: React.ReactNode | React.ReactNode[];
 }
 
 export const WishlistContextProvider = ({ children }: Provider) => {

@@ -5,11 +5,11 @@ import Logo from '../svgs/Logo';
 import Heart from '../svgs/Heart';
 import { useWishlistContext } from '../contexts/wishlist';
 
-const Header = ({ className }) => {
+const Header = ({ className }: { className?: string }) => {
   const { showWishlistItems, setShowWishlistItems, wishlistIds } = useWishlistContext();
 
   return (
-    <header className={className}>
+    <header className={className || ''}>
       <Container>
         <Logo /> 
         <WishlistButton onClick={() => setShowWishlistItems(!showWishlistItems)}>
@@ -57,6 +57,7 @@ export default styled(Header)`
   ${Logo} {
     max-width: 12rem;
     color: ${({ theme }) => theme.primaryColor};
+    font-size: 1.5rem;    
   }
 
   ${Container} {

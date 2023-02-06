@@ -55,4 +55,4 @@ export default () => (
   </Layout>
 );
 
-export const Head = () => <title>Zoekresultaten | gamma.nl</title>;
+export const Head = () => <title>Zoekresultaten | Bouwmarkt.nl</title>;

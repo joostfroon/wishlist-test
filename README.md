@@ -1,15 +1,14 @@
-## 🚀 Quick start
+## Create a Wishlist within 24 hours
 
-1.  **Create a Gatsby site.**
+- Get product data from JSON
+- Wishlist products should be stored for multiple sessions
+- Show Wishlist products in an popup.
+- Create an show wishlist products toggle in header
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+## Run this project on your local machine
 
-2.  **Start developing.**
+**Start developing.**
 
     Navigate into your new site’s directory and start it up.
 
@@ -17,7 +16,7 @@
     npm run develop
     ```
 
-3.  **Open the code and start customizing!**
+**Open the code and start customizing!**
 
     Your site is now running at http://localhost:8000!
 
